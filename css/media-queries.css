@@ -1,0 +1,147 @@
+/* ========== Responsive ========== */
+@media (max-width: 52rem) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-card {
+        display: none;
+    }
+}
+
+@media (max-width: 40rem) {
+    :root {
+        --s: .4;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: calc(var(--logo-w) * .1667 + .4rem);
+        right: 1rem;
+        z-index: 10;
+        background: var(--paper);
+        border: 2px solid var(--teal);
+        border-radius: var(--radius);
+        padding: .75rem 1.25rem;
+    }
+
+    .nav.open {
+        display: block;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+.home .topbar {
+    aspect-ratio: 1334 / 50;
+    height: auto;
+}
+
+.home .hero {
+    position: relative;
+    isolation: isolate;
+    aspect-ratio: 1334 / 930;
+    margin-top: -3.75%;
+    padding: 9% 6% 7%;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    padding-top: 2rem;
+}
+
+.home .hero-card {
+    width: min(60%, 16rem);
+}
+
+.home .dots {
+    bottom: 6%;
+}
+
+/* Ecrãs pequenos: sem imagem; painel simples e logótipo em texto */
+@media (max-width: 52rem) {
+    .home .topbar {
+        aspect-ratio: auto;
+        height: auto;
+        min-height: 3rem;
+        justify-content: space-between;
+    }
+
+    .home .logo {
+        position: static;
+        width: auto;
+        height: auto;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--teal);
+    }
+
+    .home .hero {
+        aspect-ratio: auto;
+        margin-top: .5rem;
+        padding: 2rem 1.5rem 3.5rem;
+        background: var(--teal);
+        border-radius: var(--radius);
+    }
+
+    .home .hero-bg {
+        display: none;
+    }
+
+    .home .dots {
+        bottom: 1.2rem;
+    }
+}
+
+.masthead {
+    max-width: 72rem;
+    margin-inline: auto;
+    padding: .75rem 1rem 0;
+    position: relative;
+}
+
+.home .topbar {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+@media (max-width: 52rem) {
+    .home .logo::before {
+        content: "AnimeHub";
+    }
+
+    /* o <a> não tem texto; a imagem é que o mostra em desktop */
+}
