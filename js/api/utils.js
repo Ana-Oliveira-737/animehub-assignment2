@@ -1,7 +1,5 @@
 import { aniListFetch } from "./fetch.js"
 
-const FAVORITES_STORAGE_KEY = "animehub-favorites"
-
 export const titleOf = (anime) => anime.title.english ?? anime.title.romaji
 export const posterOf = (anime) => anime.coverImage?.large ?? anime.coverImage?.medium ?? ""
 export const pageOf = (anime) => `https://anilist.co/anime/${anime.id}`
@@ -26,6 +24,7 @@ export function describe(anime) {
         anime.season && capitalise(anime.season),
         anime.format && formatLabel(anime.format),
         anime.seasonYear,
+        anime.episodes && `${anime.episodes} episodes`
     ]
         .filter(Boolean)
         .join(" • ")
@@ -39,25 +38,4 @@ export function cleanSynopsis(text, maxLength = 220) {
     return plainText.length > maxLength
         ? plainText.slice(0, maxLength).trimEnd() + "…"
         : plainText
-}
-
-function readFavorites() {
-    try {
-        return JSON.parse(localStorage.getItem(FAVORITES_STORAGE_KEY)) ?? []
-    } catch {
-        return []
-    }
-}
-
-export const isFavorite = (anime) => readFavorites().some((favorite) => favorite.id === anime.id)
-
-export function toggleFavorite(anime) {
-    const favorites = readFavorites()
-    const updatedFavorites = isFavorite(anime)
-        ? favorites.filter((favorite) => favorite.id !== anime.id)
-        : [...favorites, { id: anime.id, title: titleOf(anime), poster: posterOf(anime) }]
-    try {
-        localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(updatedFavorites))
-    } catch {
-    }
 }

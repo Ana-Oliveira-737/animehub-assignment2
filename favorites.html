@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AnimeHub</title>
+	<link rel="stylesheet" href="css/style.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;600;700&family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body class="home">
+	<div class="masthead">
+		<header class="topbar">
+			<a class="logo" href="index.html">AnimeHub</a>
+			<nav class="nav" id="nav">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="favorites.html" aria-current="page">Favorites</a></li>
+				</ul>
+			</nav>
+			<button class="menu-button">
+				<img src="image/burger.svg" alt="Add to favorites" width="30" height="30">
+			</button>
+		</header>
+	</div>
+	<main>
+
+		<section>
+			<div class="section-head">
+				<h2>Favorite Anime</h2>
+			</div>
+			<ul class="grid" id="favorite-anime"></ul>
+		</section>
+	
+	</main>
+
+	<script type="module" src="js/favorites.js"></script>
+</body>
+
+</html>
