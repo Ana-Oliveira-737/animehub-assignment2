@@ -29,11 +29,11 @@ body {
     line-height: 1.4;
 }
 
-main {
+/*.masthead,main {
     max-width: 72rem;
     margin-inline: auto;
     padding: 1.5rem 1rem 4rem;
-}
+}*/
 
 a {
     color: inherit;
@@ -51,7 +51,30 @@ ul {
     outline-offset: 2px;
 }
 
+.masthead,
+main {
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
+.masthead {
+    padding-top: .75rem;
+}
+
+main {
+    padding-block: 1.5rem 4rem;
+}
+
 .topbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    aspect-ratio: 1334 / 50;
+    padding-left: 22.5%;
+}
+
+/*.topbar {
     position: relative;
     height: var(--panel-overlap-height);
     display: flex;
@@ -60,14 +83,14 @@ ul {
     max-width: 72rem;
     margin-inline: auto;
     padding: .75rem 1rem 0;
-}
+}*/
 
 .logo {
     position: absolute;
     left: 0;
     top: 0;
     z-index: 3;
-    width: var(--logo-tab-width);
+    width: 22.5%;
     height: calc(92px * var(--panel-scale));
     font-size: 0;
     color: transparent;
@@ -76,6 +99,7 @@ ul {
 .nav {
     position: relative;
     z-index: 3;
+    margin-inline: auto;
 }
 
 .nav ul {
@@ -84,22 +108,17 @@ ul {
 }
 
 .nav a {
-    font-size: .95rem;
-    padding-block: .25rem;
+    text-decoration: none;
+    font-size: 1.3rem;
+    padding-block: .5rem;
 }
 
 .nav a:hover {
-    text-decoration: underline;
-}
-
-.nav a[aria-current="page"] {
-    font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 4px;
 }
 
 .menu-button {
-    display: none;
     background: none;
     border: 0;
     color: var(--secondary-colour);
@@ -127,7 +146,7 @@ ul {
 }
 
 .hero .hero-synopsis {
-    max-width: 34ch;
+    max-width: 100%;
     font-size: .9rem;
 }
 
@@ -263,35 +282,3 @@ ul {
     cursor: pointer;
 }
 
-.random {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    border-top: 2px solid var(--secondary-colour);
-    margin-top: 3rem;
-    padding-top: 2rem;
-}
-
-.random h2 {
-    margin: 0;
-    font-size: clamp(1.8rem, 5vw, 2.6rem);
-}
-
-.random p {
-    margin: .2rem 0;
-}
-
-.random-button {
-    width: 8rem;
-    aspect-ratio: 1;
-    border: 0;
-    border-radius: 18px;
-    background: var(--secondary-colour);
-    color: #fff;
-    font: 700 1.1rem var(--font-title);
-    cursor: pointer;
-    rotate: 10deg;
-    transition: rotate .3s;
-}

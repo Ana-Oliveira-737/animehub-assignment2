@@ -10,21 +10,39 @@
     font-size: 1.1rem;
 }
 
-.randomize {
-    margin: 1rem 5vw 3rem;
-    padding: 3rem 1.5rem;
+.random {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    border-top: 2px solid var(--secondary-colour);
+    margin-top: 3rem;
+    padding-top: 2rem;
     text-align: center;
-    border-radius: 20px;
-    background: var(--pink-bar);
 }
 
-.randomize h2 {
-    font-size: 1.8rem
+.random h2 {
+    margin: 0;
+    font-size: clamp(2.8rem, 5vw, 4.6rem);
 }
 
-.randomize p {
-    color: var(--text-muted);
-    margin: .4rem 0 1.4rem
+.random p {
+    margin: .4rem 0;
+    font-size: 1.5rem;
+}
+
+.random-button {
+    width: 8rem;
+    aspect-ratio: 1;
+    border: 0;
+    border-radius: 18px;
+    background: var(--secondary-colour);
+    color: #fff;
+    font: 700 1.1rem var(--font-title);
+    cursor: pointer;
+    rotate: 10deg;
+    transition: rotate .3s;
 }
 
 dialog {
