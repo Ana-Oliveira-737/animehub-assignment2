@@ -1,6 +1,5 @@
 import { current_season_query, hero_query } from "./api/queries.js"
-import { loadMedia, titleOf, posterOf, pageOf, describe, cleanSynopsis, isFavorite, toggleFavorite,
-} from "./api/utils.js"
+import { loadMedia, titleOf, posterOf, pageOf, describe, cleanSynopsis, isFavorite, toggleFavorite,} from "./api/utils.js"
 
 const HERO_SLIDE_DURATION = 3000
 const MAX_SLIDES = 5
@@ -15,10 +14,6 @@ heroSection.addEventListener("mouseenter", stopHeroAutoplay)
 heroSection.addEventListener("mouseleave", startHeroAutoplay)
 heroSection.addEventListener("focusin", stopHeroAutoplay)
 heroSection.addEventListener("focusout", startHeroAutoplay)
-heroSection.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowRight") showHeroSlide(currentHeroIndex + 1)
-    if (event.key === "ArrowLeft") showHeroSlide(currentHeroIndex - 1)
-})
 
 async function loadSlides() {
     try {
