@@ -4,9 +4,12 @@ import { loadMedia, titleOf, posterOf, describe, cleanSynopsis } from "./api/uti
 const SEASON = "FALL"
 const SEASON_YEAR = 2026
 const CARDS_PER_SECTION = 5
+const FAVORITES_STORAGE_KEY = "animehub-favorites"
 
 const menuButton = document.querySelector(".menu-button")
 const navigation = document.querySelector("#nav")
+
+export const isFavorite = (anime) => readFavorites().some((favorite) => favorite.id === anime.id)
 
 async function loadSection(gridId, query, variables) {
     const grid = document.querySelector(`#${gridId}`)
@@ -19,7 +22,7 @@ async function loadSection(gridId, query, variables) {
     }
 }
 
-function createCard(anime) {
+export function createCard(anime) {
     const card = document.createElement("li")
     card.className = "card"
     card.tabIndex = 0 
@@ -55,7 +58,7 @@ function createTooltip(anime) {
     title.textContent = titleOf(anime)
 
     const details = document.createElement("p")
-    details.textContent = [describe(anime), anime.episodes && `${anime.episodes} episodes`]
+    details.textContent = [describe(anime)]
         .filter(Boolean)
         .join(" • ")
 
@@ -67,6 +70,26 @@ function createTooltip(anime) {
         tooltip.append(synopsis)
     }
     return tooltip
+}
+
+
+export function readFavorites() {
+    try {
+        return JSON.parse(localStorage.getItem(FAVORITES_STORAGE_KEY)) ?? []
+    } catch {
+        return []
+    }
+}
+
+export function toggleFavorite(anime) {
+    const favorites = readFavorites()
+    const updatedFavorites = isFavorite(anime)
+        ? favorites.filter((favorite) => favorite.id !== anime.id)
+        : [...favorites, anime]
+    try {
+        localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(updatedFavorites))
+    } catch {
+    }
 }
 
 menuButton.addEventListener("click", () => {

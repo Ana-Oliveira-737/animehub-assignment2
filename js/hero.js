@@ -1,5 +1,6 @@
 import { current_season_query, hero_query } from "./api/queries.js"
-import { loadMedia, titleOf, posterOf, pageOf, describe, cleanSynopsis, isFavorite, toggleFavorite,} from "./api/utils.js"
+import { loadMedia, titleOf, posterOf, pageOf, describe, cleanSynopsis } from "./api/utils.js"
+import { isFavorite, toggleFavorite } from "./main.js"
 
 const HERO_SLIDE_DURATION = 3000
 const MAX_SLIDES = 5
@@ -50,9 +51,10 @@ function showHero(anime) {
     detailsLink.href = pageOf(anime)
     detailsLink.target = "_blank"
     detailsLink.rel = "noopener"
-
+    
     const poster = document.createElement("img")
     poster.src = posterOf(anime)
+    poster.loading = "lazy"
     poster.alt = ""
     document.querySelector(".hero-card .card:last-child").replaceChildren(poster)
 

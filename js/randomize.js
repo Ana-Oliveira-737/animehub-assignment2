@@ -1,6 +1,7 @@
 import { random_anime_query } from "./api/queries.js"
 import { aniListFetch } from "./api/fetch.js"
-import { loadMedia, titleOf, posterOf, pageOf, describe, cleanSynopsis, isFavorite, toggleFavorite,} from "./api/utils.js"
+import { loadMedia, titleOf, posterOf, pageOf, describe, cleanSynopsis } from "./api/utils.js"
+import { isFavorite, toggleFavorite } from "./main.js"
 
 const randomButton = document.querySelector(".random-button")
 const modal = document.querySelector("dialog")
