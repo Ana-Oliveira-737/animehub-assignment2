@@ -28,7 +28,6 @@ async function loadSlides() {
         })
         if (heroes.length) return heroes.slice(0, MAX_SLIDES)
     } catch {
-        /* se a hero_query falhar, usa os animes da temporada */
     }
     try {
         const animes = await loadMedia(current_season_query, { season: "FALL", seasonYear: 2026 })
