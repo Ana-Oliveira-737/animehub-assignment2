@@ -19,13 +19,11 @@
 <body class="home">
 	<div class="masthead">
 		<header class="topbar">
-			<a class="logo" href="index.html"></a>
+			<a class="logo" href="index.html">AnimeHub</a>
 			<nav class="nav" id="nav">
 				<ul>
 					<li><a href="index.html" aria-current="page">Home</a></li>
 					<li><a href="all-anime.html">All Anime</a></li>
-					<li><a href="schedule.html">Schedule</a></li>
-					<li><a href="genres.html">Genres</a></li>
 					<li><a href="favorites.html">Favorites</a></li>
 				</ul>
 			</nav>
@@ -34,7 +32,6 @@
 			</button>
 		</header>
 		<section class="hero">
-			<img class="hero-bg" src="image/header-panel.webp" alt="" width="1334" height="930">
 			<div>
 				<h1 id="hero-title">Title of Anime</h1>
 				<p class="hero-data">Season • Genre • Year</p>
@@ -43,7 +40,7 @@
 
 				<div class="hero-actions">
 					<a class="button">View Details</a>
-					<button class="button-icon">
+					<button class="button-icon" aria-label="Adicionar aos favoritos">
 						<img src="image/favorites-empty.svg" alt="Add to favorites" width="30" height="30">
 					</button>
 				</div>
@@ -115,7 +112,7 @@
                 <div class="chips" id="dialog-chips"></div>
                 <p class="dialog-synopsis" id="dialog-synopsis"></p>
                 <div class="dialog-actions">
-					<a class="button" id="dialog-link" href="#">View Details</a>
+					<a class="button" id="dialog-link">View Details</a>
                 </div>
             </div>
         </div>
