@@ -5,7 +5,7 @@ Page (page: 1, perPage: 5) {
     id
     coverImage {
     color
-    medium
+    large
     }
     title {
     romaji
