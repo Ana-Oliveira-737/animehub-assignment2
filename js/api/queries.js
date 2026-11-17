@@ -45,7 +45,7 @@ query ($averageScoreGreater: Int, $startDateGreater: FuzzyDateInt) {
 
 export const popular_query = `
 query {
-  Page (page: 1, perPage: 20) {
+  Page (page: 1, perPage: 5) {
     media (type: ANIME, sort: POPULARITY_DESC){
       id
       coverImage {
@@ -57,6 +57,7 @@ query {
         romaji
         english
       }
+      description
       season
       seasonYear
       format
@@ -91,7 +92,7 @@ query {
 
 export const random_anime_query = `
 query ($page: Int) {
-  Page (page: $page, perPage: 50) {
+  Page (page: $page, perPage: 1) {
     media (type: ANIME, sort: POPULARITY_DESC) {
       id
       coverImage {
