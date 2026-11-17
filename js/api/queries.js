@@ -23,7 +23,7 @@ Page (page: 1, perPage: 5) {
 export const hero_query = `
 query ($averageScoreGreater: Int, $startDateGreater: FuzzyDateInt) {
   Page (page: 1, perPage: 5) {
-    Media(type: ANIME, averageScore_greater: $averageScoreGreater, startDate_greater: $startDateGreater) {
+    media (type: ANIME, averageScore_greater: $averageScoreGreater, startDate_greater: $startDateGreater) {
       id
       coverImage {
         color
@@ -46,7 +46,7 @@ query ($averageScoreGreater: Int, $startDateGreater: FuzzyDateInt) {
 export const popular_query = `
 query {
   Page (page: 1, perPage: 5) {
-    media (type: ANIME, sort: POPULARITY_DESC){
+    media (type: ANIME, sort: POPULARITY_DESC) {
       id
       coverImage {
         color
