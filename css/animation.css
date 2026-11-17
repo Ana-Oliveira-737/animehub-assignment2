@@ -1,6 +1,35 @@
-
-
 .random-button:hover {
     rotate: -4deg;
 }
 
+.card.skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, transparent 30%, rgb(255 255 255 / .7) 50%, transparent 70%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s infinite linear;
+}
+
+@keyframes shimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+}
+
+@keyframes pop-up {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.08); 
+    }
+    80% {
+        transform: scale(0.95); 
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);    
+    }
+}

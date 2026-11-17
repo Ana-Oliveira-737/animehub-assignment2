@@ -36,6 +36,8 @@ export function createCard(anime) {
     } else {
         const fallbackTitle = document.createElement("p")
         fallbackTitle.textContent = titleOf(anime)
+       
+       
         card.append(fallbackTitle)
     }
 
@@ -69,6 +71,25 @@ function createTooltip(anime) {
         synopsis.textContent = cleanSynopsis(anime.description, 110)
         tooltip.append(synopsis)
     }
+
+    const favoriteButton = document.createElement("button")
+    favoriteButton.className = "button-icon"
+    const favoriteIcon = document.createElement("img")
+
+    const updateFavoriteButton = () => {
+        const favorite = isFavorite(anime)
+        favoriteIcon.src = favorite ? "image/favorites-filled.svg" : "image/favorites-empty.svg"
+        favoriteIcon.alt = favorite ? "Remove from favorites" : "Add to favorites"
+        favoriteButton.setAttribute("aria-pressed", favorite)
+    }
+    favoriteButton.onclick = () => {
+        toggleFavorite(anime)
+        updateFavoriteButton()
+    }
+
+    favoriteButton.appendChild(favoriteIcon)
+    updateFavoriteButton()
+    tooltip.append(favoriteButton)
     return tooltip
 }
 

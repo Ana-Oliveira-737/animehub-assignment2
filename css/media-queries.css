@@ -1,4 +1,22 @@
-/* ========== Responsive ========== */
+/* ==========================================================
+   Responsive layout
+   Breakpoints:
+     - Tablet:      max-width 52rem (~832px)
+     - Phone:       max-width 40rem (~640px)
+     - Small phone: max-width 24rem (~384px)
+   Must be loaded AFTER style.css.
+   ========================================================== */
+
+/* Desktop default: the burger button is only needed on phones */
+.menu-button {
+    display: none;
+}
+
+.topbar {
+    position: relative;
+}
+
+/* ---------- Tablet ---------- */
 @media (max-width: 52rem) {
     .grid {
         grid-template-columns: repeat(3, 1fr);
@@ -6,6 +24,7 @@
 
     .hero {
         grid-template-columns: 1fr;
+        padding: 2.5rem 2rem 3.5rem;
     }
 
     .hero-card {
@@ -13,25 +32,48 @@
     }
 }
 
+/* ---------- Phone ---------- */
 @media (max-width: 40rem) {
-    :root {
-        --s: .4;
+    .masthead,
+    main {
+        padding-inline: .75rem;
     }
 
-    .menu-btn {
-        display: block;
+    main {
+        padding-block: 1rem 3rem;
     }
 
+    /* Header: logo on the left, burger on the right */
+    .topbar {
+        justify-content: space-between;
+        min-height: 3rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: .25rem;
+    }
+
+    /* Navigation becomes a dropdown, toggled by main.js (.open) */
     .nav {
         display: none;
         position: absolute;
-        top: calc(var(--logo-w) * .1667 + .4rem);
-        right: 1rem;
+        top: 100%;
+        right: 0;
         z-index: 10;
+        margin: 0;
+        min-width: 10rem;
         background: var(--paper);
-        border: 2px solid var(--teal);
+        border: 2px solid var(--secondary-colour);
         border-radius: var(--radius);
         padding: .75rem 1.25rem;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, .15);
     }
 
     .nav.open {
@@ -40,108 +82,100 @@
 
     .nav ul {
         flex-direction: column;
-        padding: 0;
+        gap: .75rem;
+    }
+
+    .nav a {
+        display: block;
+        padding-block: .25rem;
+    }
+
+    /* Hero */
+    .hero {
+        margin-top: .5rem;
+        padding: 1.75rem 1.25rem 3rem;
+        gap: .5rem;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero .hero-synopsis {
+        font-size: .875rem;
+    }
+
+    .hero-actions {
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+
+    .hero-dots {
+        bottom: 1rem;
+    }
+
+    /* Bigger tap targets for the dots */
+    .hero-dots button {
+        width: .85rem;
+        height: .85rem;
+    }
+
+    /* Sections */
+    .section-head {
+        margin: 1.5rem 0 .75rem;
+        gap: .5rem;
+    }
+
+    .section-head h2 {
+        font-size: 1.2rem;
+    }
+
+    .section-head a {
+        font-size: .9rem;
+        white-space: nowrap;
     }
 
     .grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: .6rem;
+    }
+
+    .card-tooltip {
+        padding: .75rem;
+    }
+
+    .card-tooltip h3 {
+        font-size: .9rem;
+    }
+
+    .card-tooltip p {
+        font-size: .75rem;
+        -webkit-line-clamp: 5;
+        line-clamp: 5;
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
+/* ---------- Small phone ---------- */
+@media (max-width: 24rem) {
+    .hero {
+        padding: 1.5rem 1rem 2.75rem;
+    }
 
+    .hero h1 {
+        font-size: 1.3rem;
+    }
+
+    .grid {
+        gap: .4rem;
+    }
+}
+
+/* ---------- Accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
         animation: none !important;
         transition: none !important;
     }
-}
-
-.home .topbar {
-    aspect-ratio: 1334 / 50;
-    height: auto;
-}
-
-.home .hero {
-    position: relative;
-    isolation: isolate;
-    aspect-ratio: 1334 / 930;
-    margin-top: -3.75%;
-    padding: 9% 6% 7%;
-}
-
-.hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    padding-top: 2rem;
-}
-
-.home .hero-card {
-    width: min(60%, 16rem);
-}
-
-.home .dots {
-    bottom: 6%;
-}
-
-/* Ecrãs pequenos: sem imagem; painel simples e logótipo em texto */
-@media (max-width: 52rem) {
-    .home .topbar {
-        aspect-ratio: auto;
-        height: auto;
-        min-height: 3rem;
-        justify-content: space-between;
-    }
-
-    .home .logo {
-        position: static;
-        width: auto;
-        height: auto;
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--teal);
-    }
-
-    .home .hero {
-        aspect-ratio: auto;
-        margin-top: .5rem;
-        padding: 2rem 1.5rem 3.5rem;
-        background: var(--teal);
-        border-radius: var(--radius);
-    }
-
-    .home .hero-bg {
-        display: none;
-    }
-
-    .home .dots {
-        bottom: 1.2rem;
-    }
-}
-
-.masthead {
-    max-width: 72rem;
-    margin-inline: auto;
-    padding: .75rem 1rem 0;
-    position: relative;
-}
-
-.home .topbar {
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-@media (max-width: 52rem) {
-    .home .logo::before {
-        content: "AnimeHub";
-    }
-
-    /* o <a> não tem texto; a imagem é que o mostra em desktop */
 }

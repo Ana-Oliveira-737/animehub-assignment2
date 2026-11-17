@@ -35,6 +35,7 @@ function openModal(anime) {
     const title = document.querySelector("#dialog-title") || modal.querySelector("h2")
     const chips = document.querySelector("#dialog-chips") || modal.querySelector(".chips")
     const synopsis = document.querySelector("#dialog-synopsis") || modal.querySelector(".dialog-synopsis")
+    const buttons = document.querySelector("#dialog-actions") || modal.querySelector(".dialog-actions")
     const closeBtn = modal.querySelector(".close")
 
     if (img) {
@@ -56,6 +57,20 @@ function openModal(anime) {
     if (closeBtn && !closeBtn.onclick) {
         closeBtn.onclick = () => modal.close()
     }
+    const favoriteButton = document.getElementById("random-favorite")
+    const favoriteIcon = document.getElementById("random-icon")
 
+    const updateFavoriteButton = () => {
+        const favorite = isFavorite(anime)
+        favoriteIcon.src = favorite ? "image/favorites-filled.svg" : "image/favorites-empty.svg"
+        favoriteIcon.alt = favorite ? "Remove from favorites" : "Add to favorites"
+        favoriteButton.setAttribute("aria-pressed", favorite)
+    }
+    favoriteButton.onclick = () => {
+        toggleFavorite(anime)
+        updateFavoriteButton()
+    }
+
+    updateFavoriteButton()
     modal.showModal()
 }
