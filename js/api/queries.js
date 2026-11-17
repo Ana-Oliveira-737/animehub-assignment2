@@ -93,7 +93,7 @@ query {
 export const random_anime_query = `
 query ($page: Int) {
   Page (page: $page, perPage: 1) {
-    media (type: ANIME, sort: POPULARITY_DESC) {
+    media (type: ANIME) {
       id
       coverImage {
         large
@@ -107,8 +107,6 @@ query ($page: Int) {
       seasonYear
       format
       episodes
-      averageScore
-      genres
     }
   }
 }

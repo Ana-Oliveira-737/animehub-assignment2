@@ -1,6 +1,6 @@
 import { random_anime_query } from "./api/queries.js"
 import { aniListFetch } from "./api/fetch.js"
-import { titleOf, posterOf, cleanSynopsis, toggleFavorite, isFavorite } from "./api/utils.js"
+import { loadMedia, titleOf, posterOf, pageOf, describe, cleanSynopsis, isFavorite, toggleFavorite,} from "./api/utils.js"
 
 const randomButton = document.querySelector(".random-button")
 const modal = document.querySelector("dialog")
@@ -11,10 +11,10 @@ if (randomButton && modal) {
         try {
             const randomPage = Math.floor(Math.random() * 20) + 1
             const data = await aniListFetch(random_anime_query, { page: randomPage })
-            
+
             const animes = data.data.Page.media
             const randomAnime = animes[Math.floor(Math.random() * animes.length)]
-            
+
             openModal(randomAnime)
         } catch (error) {
             console.error("Error loading random anime:", error)
@@ -41,18 +41,11 @@ function openModal(anime) {
         img.alt = titleOf(anime)
     }
     if (title) title.textContent = titleOf(anime)
-    
+
     if (chips) {
-        chips.innerHTML = [
-            anime.averageScore ? `★ ${anime.averageScore}%` : null,
-            anime.format ? anime.format.replace("_", " ") : "Anime",
-            anime.episodes ? `${anime.episodes} episodes` : null,
-            anime.seasonYear,
-            ...(anime.genres ? anime.genres.slice(0, 4) : [])
-        ]
-        .filter(Boolean)
-        .map(text => `<span>${text}</span>`)
-        .join("")
+        chips.innerHTML = [describe(anime)]
+            .filter(Boolean)
+            .join(" • ")
     }
 
     if (synopsis) {
