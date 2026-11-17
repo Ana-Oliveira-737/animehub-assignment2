@@ -88,3 +88,27 @@ query {
   }
 }
 `
+
+export const random_anime_query = `
+query ($page: Int) {
+  Page (page: $page, perPage: 50) {
+    media (type: ANIME, sort: POPULARITY_DESC) {
+      id
+      coverImage {
+        large
+      }
+      title {
+        romaji
+        english
+      }
+      description
+      season
+      seasonYear
+      format
+      episodes
+      averageScore
+      genres
+    }
+  }
+}
+`

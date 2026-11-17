@@ -1,4 +1,4 @@
-import { current_season_query, popular_query } from "./api/queries.js"
+import { current_season_query, movies_query, popular_query } from "./api/queries.js"
 import { loadMedia, titleOf, posterOf, describe, cleanSynopsis } from "./api/utils.js"
 
 const SEASON = "FALL"
@@ -76,4 +76,4 @@ menuButton.addEventListener("click", () => {
 
 loadSection("fall-2026-anime", current_season_query, { season: SEASON, seasonYear: SEASON_YEAR })
 loadSection("top-anime", popular_query)
-loadSection("movies-anime", null) 
+loadSection("movies-anime", movies_query) 

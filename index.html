@@ -10,6 +10,12 @@
 	<link rel="stylesheet" href="css/media-queries.css">
 	<link rel="stylesheet" href="css/randomize.css">
 
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;600;700&family=Public+Sans:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
 <body class="home">
 	<div class="masthead">
 		<header class="topbar">
@@ -100,9 +106,24 @@
 		</section>
 	</main>
 	
+	<dialog id="modal">
+        <button class="close">✕</button>
+        <div class="dialog-body">
+            <img id="dialog-image" src="" alt="">
+            <div class="dialog-text">
+                <h2 id="dialog-title"></h2>
+                <div class="chips" id="dialog-chips"></div>
+                <p class="dialog-synopsis" id="dialog-synopsis"></p>
+                <div class="dialog-actions">
+					<a class="button" id="dialog-link" href="#">View Details</a>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
 	<script type="module" src="js/main.js"></script>
 	<script type="module" src="js/hero.js"></script>
-	<!--script src="js/randomize.js"></script-->
+	<script type="module" src="js/randomize.js"></script>
 </body>
 
 </html>
