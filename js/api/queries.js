@@ -4,14 +4,14 @@ Page (page: 1, perPage: 5) {
     media (season: $season, seasonYear: $seasonYear, type: ANIME) {
     id
     coverImage {
-    color
-    large
+      color
+      large
     }
     title {
-    romaji
-    english
+      romaji
+      english
     }
-	description
+	  description
     season
     seasonYear
     format
@@ -22,22 +22,22 @@ Page (page: 1, perPage: 5) {
 
 export const hero_query = `
 query ($averageScoreGreater: Int, $startDateGreater: FuzzyDateInt) {
-Page (page: 1, perPage: 5) {
-  Media(type: ANIME, averageScore_greater: $averageScoreGreater, startDate_greater: $startDateGreater) {
-    id
-    coverImage {
-    color
-    medium
-    }
-    title {
-    romaji
-    english
-    }
-	description
-    season
-    seasonYear
-    format
-    episodes
+  Page (page: 1, perPage: 5) {
+    Media(type: ANIME, averageScore_greater: $averageScoreGreater, startDate_greater: $startDateGreater) {
+      id
+      coverImage {
+        color
+        medium
+      }
+      title {
+        romaji
+        english
+      }
+      description
+      season
+      seasonYear
+      format
+      episodes
     }
   }
 }
@@ -45,19 +45,46 @@ Page (page: 1, perPage: 5) {
 
 export const popular_query = `
 query {
-Page (page: 1, perPage: 20) {
-  media (type: ANIME, sort: POPULARITY_DESC){
-  id
-  popularity
-    title {
-    romaji
-    english
+  Page (page: 1, perPage: 20) {
+    media (type: ANIME, sort: POPULARITY_DESC){
+      id
+      coverImage {
+        color
+        large
+      }
+      popularity
+        title {
+        romaji
+        english
+      }
+      season
+      seasonYear
+      format
+      episodes
     }
-    season
-    seasonYear
-    format
-    episodes
-    }
+  }
 }
+`
+
+export const movies_query = `
+query {
+  Page (page: 1, perPage: 5) {
+    media (type: ANIME, format: MOVIE, sort: POPULARITY_DESC) {
+      id
+      coverImage {
+        color
+        large
+      }
+      title {
+        romaji
+        english
+      }
+      description
+      season
+      seasonYear
+      format
+      episodes
+    }
+  }
 }
 `
