@@ -1,13 +1,3 @@
-/* ==========================================================
-   Responsive layout
-   Breakpoints:
-     - Tablet:      max-width 52rem (~832px)
-     - Phone:       max-width 40rem (~640px)
-     - Small phone: max-width 24rem (~384px)
-   Must be loaded AFTER style.css.
-   ========================================================== */
-
-/* Desktop default: the burger button is only needed on phones */
 .menu-button {
     display: none;
 }
@@ -16,7 +6,6 @@
     position: relative;
 }
 
-/* ---------- Tablet ---------- */
 @media (max-width: 52rem) {
     .grid {
         grid-template-columns: repeat(3, 1fr);
@@ -32,7 +21,6 @@
     }
 }
 
-/* ---------- Phone ---------- */
 @media (max-width: 40rem) {
     .masthead,
     main {
@@ -43,7 +31,6 @@
         padding-block: 1rem 3rem;
     }
 
-    /* Header: logo on the left, burger on the right */
     .topbar {
         justify-content: space-between;
         min-height: 3rem;
@@ -60,7 +47,6 @@
         padding: .25rem;
     }
 
-    /* Navigation becomes a dropdown, toggled by main.js (.open) */
     .nav {
         display: none;
         position: absolute;
@@ -90,7 +76,6 @@
         padding-block: .25rem;
     }
 
-    /* Hero */
     .hero {
         margin-top: .5rem;
         padding: 1.75rem 1.25rem 3rem;
@@ -114,13 +99,11 @@
         bottom: 1rem;
     }
 
-    /* Bigger tap targets for the dots */
     .hero-dots button {
         width: .85rem;
         height: .85rem;
     }
 
-    /* Sections */
     .section-head {
         margin: 1.5rem 0 .75rem;
         gap: .5rem;
@@ -155,7 +138,6 @@
     }
 }
 
-/* ---------- Small phone ---------- */
 @media (max-width: 24rem) {
     .hero {
         padding: 1.5rem 1rem 2.75rem;
@@ -170,7 +152,6 @@
     }
 }
 
-/* ---------- Accessibility ---------- */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
